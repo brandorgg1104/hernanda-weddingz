@@ -304,211 +304,202 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
 </a></div></div></div><div class="elementor-element elementor-element-2517020f elementor-widget elementor-widget-spacer" data-id="2517020f" data-element_type="widget" data-widget_type="spacer.default"><div class="elementor-widget-container"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div></div></div></div></div></section>
 
 <style>
-	/* ===== RSVP Modern Card ===== */
-	.rsvp-card{
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 22px 18px;
-  border-radius: 20px;
-	position: relative;
-  /* UBAH DI SINI */
-  background: rgba(255,255,255,0.92); /* lebih solid */
-  border: 1px solid rgba(0,0,0,0.08);
+  .rsvp-card{
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 22px 18px;
+    border-radius: 20px;
+    position: relative;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  }
 
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.25);
-}
-.rsvp-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:20px;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.95),
-    rgba(255,255,255,0.85)
-  );
-  z-index:-1;
-}
+  .rsvp-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+    z-index:-1;
+  }
 
-	
-	.rsvp-title{
-	  margin: 0 0 12px;
-	  font-size: 18px;
-	  font-weight: 700;
-	  letter-spacing: .2px;
-	  color: #2b2b2b;
-	  text-align: center;
-	}
-	
-	.rsvp-sub{
-	  margin: 0 0 16px;
-	  font-size: 13px;
-	  color: rgba(43,43,43,.75);
-	  text-align: center;
-	}
-	
-	.rsvp-grid{
-	  display: grid;
-	  gap: 12px;
-	}
-	
-	.rsvp-field{
-	  display: grid;
-	  gap: 6px;
-	}
-	
-	.rsvp-label{
-	  font-size: 12px;
-	  font-weight: 600;
-	  color: rgba(43,43,43,.8);
-	}
-	
-	.rsvp-input,
-.rsvp-select,
-.rsvp-textarea{
-  background: #ffffff;
-  border: 1px solid #cfcfcf;
-  color: #2b2b2b;
-  font-weight: 500;
-}
+  .rsvp-title{
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    color: #2b2b2b;
+    text-align: center;
+  }
 
-.rsvp-input::placeholder,
-.rsvp-textarea::placeholder{
-  color: #8a8a8a;
-}
+  .rsvp-sub{
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: rgba(43,43,43,.75);
+    text-align: center;
+  }
 
-	
-	.rsvp-textarea{ min-height: 96px; resize: vertical; }
-	
-	.rsvp-input:focus, .rsvp-select:focus, .rsvp-textarea:focus{
-	  border-color: rgba(0,0,0,.18);
-	  box-shadow: 0 0 0 4px rgba(0,0,0,.06);
-	  transform: translateY(-1px);
-	}
-	
-	.rsvp-row{
-	  display: grid;
-	  grid-template-columns: 1fr 140px;
-	  gap: 12px;
-	}
-	
-	@media (max-width: 420px){
-	  .rsvp-row{ grid-template-columns: 1fr; }
-	}
-	
-	.rsvp-btn{
-	  width: 100%;
-	  border: none;
-	  border-radius: 14px;
-	  padding: 12px 14px;
-	  font-weight: 700;
-	  font-size: 14px;
-	  cursor: pointer;
-	  color: #fff;
-	  background: linear-gradient(135deg, #2f6f62, #1f4b43);
-	  box-shadow: 0 12px 22px rgba(31,75,67,.25);
-	  transition: .2s ease;
-	}
-	
-	.rsvp-btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
-	.rsvp-btn:disabled{ opacity: .65; cursor: not-allowed; transform:none; }
-	
-	.rsvp-msg{
-	  font-size: 13px;
-	  text-align: center;
-	  margin-top: 10px;
-	  color: rgba(43,43,43,.85);
-	}
-	
-	.rsvp-msg.ok{ color: #0f6b3a; }
-	.rsvp-msg.err{ color: #b42318; }
-	
-	/* opsional: biar lebih “nyatu” dengan background undangan */
-	.rsvp-card *{ font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-	</style>
-	
-	<div class="rsvp-card">
-	  <h3 class="rsvp-title">RSVP & Ucapan</h3>
-	  <p class="rsvp-sub">Isi form berikut untuk konfirmasi kehadiran</p>
-	
-	  <form id="rsvpForm" class="rsvp-grid">
-		<div class="rsvp-field">
-		  <div class="rsvp-label">Nama</div>
-		  <input class="rsvp-input" name="nama" placeholder="Tulis nama kamu" required />
-		</div>
-	
-		<div class="rsvp-row">
-		  <div class="rsvp-field">
-			<div class="rsvp-label">Konfirmasi Kehadiran</div>
-			<select class="rsvp-select" name="kehadiran" required>
-			  <option value="">Pilih…</option>
-			  <option value="Hadir">Hadir</option>
-			  <option value="Tidak Hadir">Tidak Hadir</option>
-			</select>
-		  </div>
-	
-		  <div class="rsvp-field">
-			<div class="rsvp-label">Jumlah</div>
-			<input class="rsvp-input" name="jumlah" type="number" min="1" placeholder="1" />
-		  </div>
-		</div>
-	
-		<div class="rsvp-field">
-		  <div class="rsvp-label">Ucapan</div>
-		  <textarea class="rsvp-textarea" name="ucapan" placeholder="Tulis ucapan untuk mempelai…" required></textarea>
-		</div>
-	
-		<button id="rsvpBtn" class="rsvp-btn" type="submit">Kirim RSVP</button>
-		<div id="rsvpMsg" class="rsvp-msg"></div>
-	  </form>
-	</div>
-	
-	<script>
-	const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLRNdulWBLU_PqYBSvEKMpIL-maICgvj__KwMDhL98FtWc_QMZ9zwv9bw8PJGJs4ZE5A/exec";
-	
-	const form = document.getElementById("rsvpForm");
-	const btn  = document.getElementById("rsvpBtn");
-	const msg  = document.getElementById("rsvpMsg");
-	
-	form.addEventListener("submit", async (e) => {
-	  e.preventDefault();
-	  btn.disabled = true;
-	  msg.className = "rsvp-msg";
-	  msg.textContent = "Mengirim…";
-	
-	  const payload = {
-		nama: form.nama.value.trim(),
-		kehadiran: form.kehadiran.value,
-		jumlah: form.jumlah.value,
-		ucapan: form.ucapan.value.trim()
-	  };
-	
-	  try {
-		const res = await fetch(SCRIPT_URL, {
-		  method: "POST",
-		  headers: { "Content-Type": "text/plain;charset=utf-8" },
-		  body: JSON.stringify(payload)
-		});
-	
-		const out = await res.json().catch(() => ({}));
-	
-		if (out.status === "ok") {
-		  msg.classList.add("ok");
-		  msg.textContent = "✅ Terima kasih! RSVP kamu berhasil dikirim.";
-		  form.reset();
-		} else {
-		  msg.classList.add("err");
-		  msg.textContent = "❌ Gagal mengirim. Coba lagi ya.";
-		}
-	  } catch (err) {
-		msg.classList.add("err");
-		msg.textContent = "❌ Error koneksi. Coba lagi ya.";
-	  } finally {
-		btn.disabled = false;
-	  }
-	});
-	</script>
+  .rsvp-grid{ display: grid; gap: 12px; }
+  .rsvp-field{ display: grid; gap: 6px; }
+
+  .rsvp-label{
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(43,43,43,.8);
+  }
+
+  .rsvp-input,
+  .rsvp-select,
+  .rsvp-textarea{
+    width: 100%;
+    border-radius: 14px;
+    padding: 12px 14px;
+    outline: none;
+    font-size: 14px;
+    background: #ffffff;
+    border: 1px solid #cfcfcf;
+    color: #2b2b2b;
+    font-weight: 500;
+    transition: .2s ease;
+  }
+
+  .rsvp-input::placeholder,
+  .rsvp-textarea::placeholder{ color: #8a8a8a; }
+
+  .rsvp-textarea{ min-height: 96px; resize: vertical; }
+
+  .rsvp-input:focus, .rsvp-select:focus, .rsvp-textarea:focus{
+    border-color: rgba(0,0,0,.18);
+    box-shadow: 0 0 0 4px rgba(0,0,0,.06);
+    transform: translateY(-1px);
+  }
+
+  .rsvp-row{
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 12px;
+  }
+
+  @media (max-width: 420px){
+    .rsvp-row{ grid-template-columns: 1fr; }
+  }
+
+  .rsvp-btn{
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(135deg, #2f6f62, #1f4b43);
+    box-shadow: 0 12px 22px rgba(31,75,67,.25);
+    transition: .2s ease;
+  }
+
+  .rsvp-btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+  .rsvp-btn:disabled{ opacity: .65; cursor: not-allowed; transform:none; }
+
+  .rsvp-msg{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(43,43,43,.85);
+  }
+
+  .rsvp-msg.ok{ color: #0f6b3a; }
+  .rsvp-msg.err{ color: #b42318; }
+
+  .rsvp-card *{ font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+</style>
+
+<div class="rsvp-card">
+  <h3 class="rsvp-title">RSVP & Ucapan</h3>
+  <p class="rsvp-sub">Isi form berikut untuk konfirmasi kehadiran</p>
+
+  <form id="rsvpForm" class="rsvp-grid">
+    <div class="rsvp-field">
+      <div class="rsvp-label">Nama</div>
+      <input class="rsvp-input" name="nama" placeholder="Tulis nama kamu" required />
+    </div>
+
+    <div class="rsvp-row">
+      <div class="rsvp-field">
+        <div class="rsvp-label">Konfirmasi Kehadiran</div>
+        <select class="rsvp-select" name="kehadiran" required>
+          <option value="">Pilih…</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
+      </div>
+
+      <div class="rsvp-field">
+        <div class="rsvp-label">Jumlah</div>
+        <input class="rsvp-input" name="jumlah" type="number" min="1" placeholder="1" />
+      </div>
+    </div>
+
+    <div class="rsvp-field">
+      <div class="rsvp-label">Ucapan</div>
+      <textarea class="rsvp-textarea" name="ucapan" placeholder="Tulis ucapan untuk mempelai…" required></textarea>
+    </div>
+
+    <button id="rsvpBtn" class="rsvp-btn" type="submit">Kirim RSVP</button>
+    <div id="rsvpMsg" class="rsvp-msg"></div>
+  </form>
+</div>
+
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQVBCB8YrNqLIQfu6D-YdJ_DjeHG7qmevan4szZ73f0ifyY4-eMl9nWV_S8PgCFBi8XQ/exec";
+
+  const form = document.getElementById("rsvpForm");
+  const btn  = document.getElementById("rsvpBtn");
+  const msg  = document.getElementById("rsvpMsg");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    msg.className = "rsvp-msg";
+    msg.textContent = "Mengirim…";
+
+    const payload = {
+      nama: form.nama.value.trim(),
+      kehadiran: form.kehadiran.value,
+      jumlah: form.jumlah.value,
+      ucapan: form.ucapan.value.trim(),
+      sumber: "website"
+    };
+
+    try {
+      // Kirim sebagai form-urlencoded (lebih stabil untuk Apps Script)
+      const body = new URLSearchParams(payload);
+
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body
+      });
+
+      const out = await res.json().catch(() => ({}));
+
+      if (out.status === "ok" || out.result === "ok") {
+        msg.classList.add("ok");
+        msg.textContent = "✅ Terima kasih! RSVP kamu berhasil dikirim.";
+        form.reset();
+      } else {
+        msg.classList.add("err");
+        msg.textContent = "❌ Gagal mengirim. " + (out.message ? out.message : "Coba lagi ya.");
+      }
+    } catch (err) {
+      msg.classList.add("err");
+      msg.textContent = "❌ Error koneksi. Coba lagi ya.";
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
 	
 
 
@@ -699,6 +690,7 @@ document.addEventListener("visibilitychange", event => {
 
 
 <!-- Page cached by LiteSpeed Cache 7.5.0.1 on 2025-12-25 21:03:05 -->
+
 
 
 
