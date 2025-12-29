@@ -303,6 +303,7 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
 </span>
 </a></div></div></div><div class="elementor-element elementor-element-2517020f elementor-widget elementor-widget-spacer" data-id="2517020f" data-element_type="widget" data-widget_type="spacer.default"><div class="elementor-widget-container"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div></div></div></div></div></section>
 
+<!-- ===== RSVP CUSTOM (FIX) START ===== -->
 <style>
   .rsvp-card{
     max-width: 520px;
@@ -315,20 +316,10 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
     box-shadow: 0 18px 40px rgba(0,0,0,0.25);
   }
 
-  .rsvp-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:20px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-    z-index:-1;
-  }
-
   .rsvp-title{
     margin: 0 0 12px;
     font-size: 18px;
     font-weight: 700;
-    letter-spacing: .2px;
     color: #2b2b2b;
     text-align: center;
   }
@@ -355,25 +346,13 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
     width: 100%;
     border-radius: 14px;
     padding: 12px 14px;
-    outline: none;
     font-size: 14px;
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #cfcfcf;
     color: #2b2b2b;
-    font-weight: 500;
-    transition: .2s ease;
   }
-
-  .rsvp-input::placeholder,
-  .rsvp-textarea::placeholder{ color: #8a8a8a; }
 
   .rsvp-textarea{ min-height: 96px; resize: vertical; }
-
-  .rsvp-input:focus, .rsvp-select:focus, .rsvp-textarea:focus{
-    border-color: rgba(0,0,0,.18);
-    box-shadow: 0 0 0 4px rgba(0,0,0,.06);
-    transform: translateY(-1px);
-  }
 
   .rsvp-row{
     display: grid;
@@ -389,30 +368,28 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
     width: 100%;
     border: none;
     border-radius: 14px;
-    padding: 12px 14px;
+    padding: 14px;
     font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
+    font-size: 15px;
     color: #fff;
-    background: linear-gradient(135deg, #2f6f62, #1f4b43);
-    box-shadow: 0 12px 22px rgba(31,75,67,.25);
-    transition: .2s ease;
+    cursor: pointer;
+    background: linear-gradient(135deg,#2f6f62,#1f4b43);
   }
 
-  .rsvp-btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
-  .rsvp-btn:disabled{ opacity: .65; cursor: not-allowed; transform:none; }
+  .rsvp-btn:disabled{ opacity:.6; }
 
   .rsvp-msg{
     font-size: 13px;
-    text-align: center;
     margin-top: 10px;
-    color: rgba(43,43,43,.85);
+    text-align: center;
   }
 
-  .rsvp-msg.ok{ color: #0f6b3a; }
-  .rsvp-msg.err{ color: #b42318; }
+  .rsvp-msg.ok{ color:#0f6b3a; }
+  .rsvp-msg.err{ color:#b42318; }
 
-  .rsvp-card *{ font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  .rsvp-card *{
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
 </style>
 
 <div class="rsvp-card">
@@ -422,7 +399,7 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
   <form id="rsvpForm" class="rsvp-grid">
     <div class="rsvp-field">
       <div class="rsvp-label">Nama</div>
-      <input class="rsvp-input" name="nama" placeholder="Tulis nama kamu" required />
+      <input class="rsvp-input" name="nama" required placeholder="Tulis nama kamu">
     </div>
 
     <div class="rsvp-row">
@@ -437,13 +414,13 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
 
       <div class="rsvp-field">
         <div class="rsvp-label">Jumlah</div>
-        <input class="rsvp-input" name="jumlah" type="number" min="1" placeholder="1" />
+        <input class="rsvp-input" name="jumlah" type="number" min="1" placeholder="1">
       </div>
     </div>
 
     <div class="rsvp-field">
       <div class="rsvp-label">Ucapan</div>
-      <textarea class="rsvp-textarea" name="ucapan" placeholder="Tulis ucapan untuk mempelai…" required></textarea>
+      <textarea class="rsvp-textarea" name="ucapan" required placeholder="Tulis ucapan untuk mempelai…"></textarea>
     </div>
 
     <button id="rsvpBtn" class="rsvp-btn" type="submit">Kirim RSVP</button>
@@ -452,7 +429,8 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
 </div>
 
 <script>
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQVBCB8YrNqLIQfu6D-YdJ_DjeHG7qmevan4szZ73f0ifyY4-eMl9nWV_S8PgCFBi8XQ/exec";
+  const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzuyBMiB3VEa2iFYzyYj8r2XzoHZSOktoFJJUoQAHVfohsyjZqgQ9rFd4tG7gtjQRTyRw/exec";
 
   const form = document.getElementById("rsvpForm");
   const btn  = document.getElementById("rsvpBtn");
@@ -465,10 +443,10 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
     msg.textContent = "Mengirim…";
 
     const payload = {
-      nama: form.nama.value.trim(),
+      nama: form.nama.value,
       kehadiran: form.kehadiran.value,
       jumlah: form.jumlah.value,
-      ucapan: form.ucapan.value.trim(),
+      ucapan: form.ucapan.value,
       sumber: "website"
     };
 
@@ -479,27 +457,27 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
       });
 
       const text = await res.text();
-      let out = {};
+      let out;
       try { out = JSON.parse(text); }
-      catch (e) { out = { status: "error", message: text }; }
+      catch { out = { status:"error", message:text }; }
 
       if (out.status === "ok") {
         msg.classList.add("ok");
-        msg.textContent = "✅ Terima kasih! RSVP kamu berhasil dikirim.";
+        msg.textContent = "✅ Terima kasih! RSVP berhasil dikirim.";
         form.reset();
       } else {
         msg.classList.add("err");
-        msg.textContent = "❌ Gagal mengirim. " + (out.message || "Coba lagi ya.");
+        msg.textContent = "❌ Gagal mengirim. " + (out.message || "");
       }
-
     } catch (err) {
       msg.classList.add("err");
-      msg.textContent = "❌ Error koneksi. Coba lagi ya.";
+      msg.textContent = "❌ Error koneksi.";
     } finally {
       btn.disabled = false;
     }
   });
 </script>
+<!-- ===== RSVP CUSTOM (FIX) END ===== -->
 
 
 	
@@ -510,7 +488,7 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
 
 <section class="elementor-section elementor-inner-section elementor-element elementor-element-35878f8a elementor-section-height-min-height elementor-section-full_width elementor-section-content-middle elementor-section-height-default" data-id="35878f8a" data-element_type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}"><div class="elementor-container elementor-column-gap-no"><div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-a54db8e" data-id="a54db8e" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-background-overlay"></div><div class="elementor-element elementor-element-bbf3cea reveal elementor-widget elementor-widget-heading" data-id="bbf3cea" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="heading.default"><div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">Terima Kasih</h2></div></div><div class="elementor-element elementor-element-14febc20 reveal elementor-widget elementor-widget-heading" data-id="14febc20" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="heading.default"><div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">Suatu kebahagiaan &amp; kehormatan bagi kami,<br>apabila Bapak/Ibu/Saudara/i, berkenan hadir<br>dan memberikan do'a restu kepada kami<br><br><b>Kami Yang Berbahagia</b></h2></div></div><div class="elementor-element elementor-element-fe3d8f2 elementor-widget elementor-widget-spacer" data-id="fe3d8f2" data-element_type="widget" data-widget_type="spacer.default"><div class="elementor-widget-container"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div></div><div class="elementor-element elementor-element-467c80a0 reveal elementor-widget elementor-widget-heading" data-id="467c80a0" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="heading.default"><div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">Nanda &amp; Adit</h2></div></div><div class="elementor-element elementor-element-54a863de elementor-widget elementor-widget-spacer" data-id="54a863de" data-element_type="widget" data-widget_type="spacer.default"><div class="elementor-widget-container"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div></div><div class="elementor-element elementor-element-ae97415 elementor-widget elementor-widget-spacer" data-id="ae97415" data-element_type="widget" data-widget_type="spacer.default"><div class="elementor-widget-container"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div></div><div class="elementor-element elementor-element-4a1a5d13 elementor-view-stacked elementor-fixed elementor-widget__width-auto elementor-widget-mobile__width-initial elementor-shape-circle elementor-widget elementor-widget-weddingpress-audio" data-id="4a1a5d13" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;fixed&quot;}" data-widget_type="weddingpress-audio.default"><div class="elementor-widget-container"> <script>var settingAutoplay = 'yes';
 				window.settingAutoplay = settingAutoplay === 'disable' ? false : true;</script> <div id="audio-container" class="audio-box"><audio id="song">
-<source src="https://brandorgg1104.github.io/bahan-nikah/bandaneira3.mp3"
+<source src="https://brandorgg1104.github.io/bahan-nikah/bandaneira4.mp3"
 type="audio/mp3">
 </audio><div class="elementor-icon-wrapper" id="unmute-sound" style="display: none;"><div class="elementor-icon">
 <i aria-hidden="true" class="fas fa-microphone-slash"></i></div></div><div class="elementor-icon-wrapper" id="mute-sound" style="display: none;"><div class="elementor-icon">
@@ -692,6 +670,7 @@ document.addEventListener("visibilitychange", event => {
 
 
 <!-- Page cached by LiteSpeed Cache 7.5.0.1 on 2025-12-25 21:03:05 -->
+
 
 
 
