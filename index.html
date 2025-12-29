@@ -429,8 +429,7 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
 </div>
 
 <script>
-  const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzuyBMiB3VEa2iFYzyYj8r2XzoHZSOktoFJJUoQAHVfohsyjZqgQ9rFd4tG7gtjQRTyRw/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxIznXO2m7VKcZH8MMgclsz0gNVNPjRXjAfDSQREuldUCi1i3r9eTnYfqsZb12i_20C/exec";
 
   const form = document.getElementById("rsvpForm");
   const btn  = document.getElementById("rsvpBtn");
@@ -443,10 +442,10 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
     msg.textContent = "Mengirim…";
 
     const payload = {
-      nama: form.nama.value,
+      nama: form.nama.value.trim(),
       kehadiran: form.kehadiran.value,
       jumlah: form.jumlah.value,
-      ucapan: form.ucapan.value,
+      ucapan: form.ucapan.value.trim(),
       sumber: "website"
     };
 
@@ -459,7 +458,7 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
       const text = await res.text();
       let out;
       try { out = JSON.parse(text); }
-      catch { out = { status:"error", message:text }; }
+      catch { out = { status: "error", message: text }; }
 
       if (out.status === "ok") {
         msg.classList.add("ok");
@@ -477,8 +476,6 @@ Jl. Cemara Blok 9 Gisting Atas Kec. Gisting Kab. Tanggamus</div>
     }
   });
 </script>
-<!-- ===== RSVP CUSTOM (FIX) END ===== -->
-
 
 	
 
@@ -670,6 +667,7 @@ document.addEventListener("visibilitychange", event => {
 
 
 <!-- Page cached by LiteSpeed Cache 7.5.0.1 on 2025-12-25 21:03:05 -->
+
 
 
 
